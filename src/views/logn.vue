@@ -97,7 +97,7 @@ let options = ref([
   text-align: center;
   width: 400px;
   height: 280px;
-  background-color: white;
+  background: transparent;
   margin: 0px auto;
   top: calc((100vh - 310px) / 2);
   position: relative;

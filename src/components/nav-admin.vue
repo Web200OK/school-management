@@ -5,9 +5,9 @@
         :router="true"
         default-active="/create-teacher"
         class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
+        background-color="#304156"
+        text-color="#bfcbd9"
+        active-text-color="#409eff"
       >
         <el-menu-item> 图标 </el-menu-item>
         <el-submenu index="1">
@@ -78,7 +78,9 @@ let router = useRouter();
   user-select: none;
   width: 200px;
   height: 100vh;
-  background: #545c64;
+  // background: #5df397;
+  background: #304156;
+
   position: fixed;
   top: 0px;
   left: 0px;

@@ -51,14 +51,17 @@ function back() {
   width: 100%;
   height: 44px;
   line-height: 44px;
+  margin-left: -20px;
+  margin-top: -10px;
   text-align: center;
-  background-color: #545c64;
-  color: white;
+  background-color: #304156;
+  color: #bfcbd9;
 }
 .back {
   float: right;
   font-size: 14px;
   margin-right: 20px;
-  color: white;
+  color: #bfcbd9;
 }
+
 </style>
