@@ -36,7 +36,7 @@ let nav =
     : localStorage.id == "teacher"
     ? teacher
     : student;
-let router = useRouter();
+let router = useRouter()
 let title =
   localStorage.id == "admin"
     ? "管理员"
