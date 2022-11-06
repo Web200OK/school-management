@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <span class="title">账号登录</span>
     <el-input
       placeholder="请输入账号"
       v-model="user"
@@ -30,7 +31,7 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import lognFun from "../modules/logn";
@@ -96,13 +97,19 @@ let options = ref([
 .box {
   text-align: center;
   width: 400px;
-  height: 280px;
-  background: transparent;
+  height: 300px;
+  // background: transparent;
+  background-color: rgb(200, 239, 247);
+  opacity: 0.9;
   margin: 0px auto;
   top: calc((100vh - 310px) / 2);
   position: relative;
   border-radius: 10px;
   padding-top: 30px;
+}
+.title {
+  display: block;
+  margin-bottom: 15px;
 }
 .el-input {
   width: 300px;
