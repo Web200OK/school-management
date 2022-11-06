@@ -25,97 +25,97 @@
   <h1 v-else>目前禁止察看成绩</h1>
 </template>
 <script setup>
-import { ref } from "vue";
-import { useStore } from "vuex";
-import api from "@/modules/api";
-import teacherPrint from "@/modules/teacher/teacher-print";
+import { ref } from 'vue'
+import { useStore } from 'vuex'
+import api from '@/modules/api'
+import teacherPrint from '@/modules/teacher/teacher-print'
 
-let store = useStore();
-let url = ref("");
-let tableData = ref([]);
-let all = ref(0);
-let gpa = ref(0);
-let num = ref(0);
+let store = useStore()
+let url = ref('')
+let tableData = ref([])
+let all = ref(0)
+let gpa = ref(0)
+let num = ref(0)
 
-let data = ref([]);
+let data = ref([])
 api(`select * from achievement where stucode='${localStorage.student}'`).then(
   (res) => {
-    tableData.value = res.res;
-    let value = Object.values(res.res[0]).slice(2, 8);
+    tableData.value = res.res
+    let value = Object.values(res.res[0]).slice(2, 8)
     value.forEach((item, index) => {
       if (+item) {
-        all.value += +item;
-        num.value++;
+        all.value += +item
+        num.value++
       }
       if (+item > 90) {
-        gpa.value += 4;
+        gpa.value += 4
       } else if (+item > 80) {
-        gpa.value += 3;
+        gpa.value += 3
       } else if (+item > 70) {
-        gpa.value += 2;
+        gpa.value += 2
       } else if (+item > 60) {
-        gpa.value += 1;
+        gpa.value += 1
       }
-    });
+    })
     let key = [
-      "学号",
-      "姓名",
-      "VUE",
-      "Node.js",
-      "马克思",
-      "创新",
-      "MysSQL",
-      "高等数学",
-      "平局绩点",
-      "平均分",
-      "总分",
-    ];
-    let values = Object.values(tableData.value[0]).slice(0, 8);
-    values.push((gpa.value / num.value).toFixed(2));
-    values.push((all.value / num.value).toFixed(2));
-    values.push(all.value);
+      '学号',
+      '姓名',
+      'VUE',
+      'Node.js',
+      '马克思',
+      '创新',
+      'MysSQL',
+      '高等数学',
+      '平局绩点',
+      '平均分',
+      '总分'
+    ]
+    let values = Object.values(tableData.value[0]).slice(0, 8)
+    values.push((gpa.value / num.value).toFixed(2))
+    values.push((all.value / num.value).toFixed(2))
+    values.push(all.value)
     key.forEach((item, index) => {
       data.value.push({
         key: item,
-        value: values[index],
-      });
-    });
+        value: values[index]
+      })
+    })
   }
-);
+)
 
-let isShow = ref(false);
+let isShow = ref(false)
 function log() {
-  let data = [];
+  let data = []
   data.push([
-    "姓名",
-    "学号",
-    "VUE",
-    "Node.js",
-    "马克思主义哲学",
-    "创新与实践",
-    "MySQL",
-    "高等数学",
-    "总分",
-  ]);
-  let newData = Object.values(tableData.value[0]);
-  newData[8] = all.value;
-  data.push(newData);
+    '姓名',
+    '学号',
+    'VUE',
+    'Node.js',
+    '马克思主义哲学',
+    '创新与实践',
+    'MySQL',
+    '高等数学',
+    '总分'
+  ])
+  let newData = Object.values(tableData.value[0])
+  newData[8] = all.value
+  data.push(newData)
   let print = {
-    name: localStorage.student + "同学的成绩单",
-    data: data,
-  };
+    name: localStorage.student + '同学的成绩单',
+    data: data
+  }
   teacherPrint({ data: print }).then((res) => {
-    isShow.value = true;
-    url.value = print.name;
-  });
+    isShow.value = true
+    url.value = print.name
+  })
 }
 
-let isWatch = ref("");
+let isWatch = ref('')
 api(`select * from isshow`).then((res) => {
-  isWatch.value = res.res[0].watch;
-});
+  isWatch.value = res.res[0].watch
+})
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .box-card {
   width: 500px !important;
   height: 400px !important;

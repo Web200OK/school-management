@@ -12,11 +12,11 @@
   >
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-import { ElMessage } from "element-plus";
-let title = ref("");
-let text = ref("");
+import { ref } from 'vue'
+import api from '@/modules/api'
+import { ElMessage } from 'element-plus'
+let title = ref('')
+let text = ref('')
 function create() {
   api(`INSERT INTO message ( id, title,text,time )
                        VALUES
@@ -25,21 +25,21 @@ function create() {
   }' ,NOW());`).then((res) => {
     if (res.res) {
       ElMessage.success({
-        message: "成功发布通告",
-        type: "success",
-      });
-      title.value = "";
-      text.value = "";
+        message: '成功发布通告',
+        type: 'success'
+      })
+      title.value = ''
+      text.value = ''
     } else {
       ElMessage({
-        message: "发布失败",
-        type: "error",
-      });
+        message: '发布失败',
+        type: 'error'
+      })
     }
-  });
+  })
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-form-item {
   width: 500px;
   margin: 0px auto;

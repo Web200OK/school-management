@@ -22,35 +22,35 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-import { ElMessage } from "element-plus";
-let time = ref("");
+import { ref } from 'vue'
+import api from '@/modules/api'
+import { ElMessage } from 'element-plus'
+let time = ref('')
 api(`select * from time where id='settime';`).then((res) => {
-  let data = [new Date(+res.res[0].start), new Date(+res.res[0].end)];
-  time.value = data;
-});
+  let data = [new Date(+res.res[0].start), new Date(+res.res[0].end)]
+  time.value = data
+})
 function setTime() {
   api(
     ` UPDATE time SET start='${time.value[0].getTime()}',end='${time.value[1].getTime()}' WHERE id='settime';`
   ).then((res) => {
-    console.log(res);
-  });
+    console.log(res)
+  })
 }
-let ishow = ref("");
+let ishow = ref('')
 function start() {
   api(`select * from isshow where id='show';`).then((res) => {
-    ishow.value = res.res[0].watch;
-  });
+    ishow.value = res.res[0].watch
+  })
 }
-start();
+start()
 function set(value) {
   api(`UPDATE isshow SET watch='${value}' WHERE id='show';`).then((res) => {
-    start();
-  });
+    start()
+  })
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .head {
   text-align: center;
   margin-top: 30px;

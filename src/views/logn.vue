@@ -31,69 +31,69 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted, onUnmounted, onBeforeUnmount } from "vue";
-import { useRouter } from "vue-router";
-import { ElMessage } from "element-plus";
-import lognFun from "../modules/logn";
-let router = useRouter();
+import { ref, onMounted, onUnmounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
+import lognFun from '../modules/logn'
+let router = useRouter()
 onMounted(() => {
-  document.body.classList.add("logn");
-});
+  document.body.classList.add('logn')
+})
 onUnmounted(() => {
-  document.body.classList.remove("logn");
-});
+  document.body.classList.remove('logn')
+})
 //账号密码身份
-let user = ref("");
-let password = ref("");
-let id = ref("student");
+let user = ref('')
+let password = ref('')
+let id = ref('student')
 function logn() {
-  if (user.value == "" || password.value == "") {
+  if (user.value == '' || password.value == '') {
     ElMessage({
-      message: "请将信息填写完整",
-      type: "error",
-    });
+      message: '请将信息填写完整',
+      type: 'error'
+    })
   } else {
     lognFun({
       col: id.value,
       id: user.value,
-      password: password.value,
+      password: password.value
     }).then((res) => {
       if (res.res == false) {
         ElMessage({
-          message: "账号或密码错误",
-          type: "error",
-        });
+          message: '账号或密码错误',
+          type: 'error'
+        })
       } else {
-        localStorage.id = res.id; //身份
-        localStorage.user = res.user; //账号
-        localStorage[res.id] = user.value;
+        localStorage.id = res.id //身份
+        localStorage.user = res.user //账号
+        localStorage[res.id] = user.value
         let go =
-          res.id == "admin"
-            ? "create-teacher"
-            : res.id == "teacher"
-            ? "read-student"
-            : "student-score";
-        router.replace({ path: `/${go}`, query: { user: user.value } });
+          res.id == 'admin'
+            ? 'create-teacher'
+            : res.id == 'teacher'
+            ? 'read-student'
+            : 'student-score'
+        router.replace({ path: `/${go}`, query: { user: user.value } })
       }
-    });
+    })
   }
 }
 let options = ref([
   {
-    label: "学生",
-    value: "student",
+    label: '学生',
+    value: 'student'
   },
   {
-    label: "教师",
-    value: "teacher",
+    label: '教师',
+    value: 'teacher'
   },
   {
-    label: "管理员",
-    value: "admin",
-  },
-]);
+    label: '管理员',
+    value: 'admin'
+  }
+])
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .box {
   text-align: center;
   width: 400px;

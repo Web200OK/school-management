@@ -32,35 +32,35 @@
   </el-table>
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-import { ElMessage } from "element-plus";
-let tableData = ref("");
+import { ref } from 'vue'
+import api from '@/modules/api'
+import { ElMessage } from 'element-plus'
+let tableData = ref('')
 api(`select * from message`).then((res) => {
-  tableData.value = res.res;
-});
+  tableData.value = res.res
+})
 function remove(data) {
-  let id = data.row.id;
-  let index = data.$index;
+  let id = data.row.id
+  let index = data.$index
   api(`DELETE FROM message where id='${id}';`).then((res) => {
     if (res.res) {
-      tableData.value.splice(index, 1);
+      tableData.value.splice(index, 1)
       ElMessage.success({
-        message: "删除成功",
-        type: "success",
-        duration: 1000,
-      });
+        message: '删除成功',
+        type: 'success',
+        duration: 1000
+      })
     } else {
       ElMessage({
-        message: "删除成功",
-        type: "error",
-        duration: 1000,
-      });
+        message: '删除成功',
+        type: 'error',
+        duration: 1000
+      })
     }
-  });
+  })
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .title {
   width: 150px;
   height: 20px;

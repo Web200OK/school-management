@@ -27,10 +27,10 @@
   </el-row>
 </template>
 <script setup>
-import { ref } from "vue";
-let updataTeacherUrl = "/updata-student?id=" + localStorage.student;
+import { ref } from 'vue'
+let updataTeacherUrl = '/updata-student?id=' + localStorage.student
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-row {
   user-select: none;
   width: 200px;

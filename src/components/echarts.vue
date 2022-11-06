@@ -5,19 +5,19 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from "vue";
-import * as echarts from "echarts";
-let prop = defineProps({ option: Object, isShow: Boolean });
-let echartsShow = ref(true);
-let emit = defineEmits();
-let showValue = ref(false);
+import { ref, onMounted } from 'vue'
+import * as echarts from 'echarts'
+let prop = defineProps({ option: Object, isShow: Boolean })
+let echartsShow = ref(true)
+let emit = defineEmits()
+let showValue = ref(false)
 function notShow() {
-  emit("notShow", showValue);
+  emit('notShow', showValue)
 }
 onMounted(() => {
-  var myChart = echarts.init(document.getElementById("main"));
-  myChart.setOption(prop.option);
-});
+  var myChart = echarts.init(document.getElementById('main'))
+  myChart.setOption(prop.option)
+})
 </script>
 <style scoped lang="less">
 .box {

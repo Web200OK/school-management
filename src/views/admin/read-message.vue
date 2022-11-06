@@ -23,66 +23,66 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-let tableData = ref("");
-let student = ref([]);
-let isStudent = ref(localStorage.id == "student");
-let studentName = ref(localStorage.student);
-let isWatch = ref("");
+import { ref } from 'vue'
+import api from '@/modules/api'
+let tableData = ref('')
+let student = ref([])
+let isStudent = ref(localStorage.id == 'student')
+let studentName = ref(localStorage.student)
+let isWatch = ref('')
 api(`select * from isshow`).then((res) => {
-  isWatch.value = res.res[0].watch;
-});
-if (localStorage.id == "student") {
+  isWatch.value = res.res[0].watch
+})
+if (localStorage.id == 'student') {
   api(
     `select * from achievement where stucode='${localStorage.student}';`
   ).then((res) => {
-    studentName.value = res.res[0].name;
-    tableData.value = res.res;
-    let data = res.res[0];
+    studentName.value = res.res[0].name
+    tableData.value = res.res
+    let data = res.res[0]
     if (+data.vue < 60) {
       student.value.push({
-        key: "VUE",
-        value: data.vue,
-      });
+        key: 'VUE',
+        value: data.vue
+      })
     }
     if (+data.node < 60) {
       student.value.push({
-        key: "Node",
-        value: data.node,
-      });
+        key: 'Node',
+        value: data.node
+      })
     }
     if (+data.marx < 60) {
       student.value.push({
-        key: "马克思主义思想",
-        value: data.marx,
-      });
+        key: '马克思主义思想',
+        value: data.marx
+      })
     }
     if (+data.innovate < 60) {
       student.value.push({
-        key: "创新与实践",
-        value: data.innovate,
-      });
+        key: '创新与实践',
+        value: data.innovate
+      })
     }
     if (+data.mysql < 60) {
       student.value.push({
-        key: "MySql",
-        value: data.mysql,
-      });
+        key: 'MySql',
+        value: data.mysql
+      })
     }
     if (+data.math < 60) {
       student.value.push({
-        key: "高等数学",
-        value: data.math,
-      });
+        key: '高等数学',
+        value: data.math
+      })
     }
-  });
+  })
 }
 api(`select * from message`).then((res) => {
-  tableData.value = res.res;
-});
+  tableData.value = res.res
+})
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .mes-box {
   padding: 20px 0px;
   border-bottom: 1px solid black;

@@ -4,10 +4,10 @@
 </script>
 
 <template>
-  <router-view/>
+  <router-view />
 </template>
 
-<style lang='less'>
+<style lang="less">
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -23,7 +23,7 @@
   width: 100vw;
   height: 100vh;
   background-size: 100% 100%;
-  background-image: url("./assets/home.jpg");
+  background-image: url('./assets/home.jpg');
   // background-color: rgb(199, 232, 232);
 }
 </style>

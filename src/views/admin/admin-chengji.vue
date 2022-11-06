@@ -17,12 +17,11 @@
   </el-table>
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-let tableData = ref("");
+import { ref } from 'vue'
+import api from '@/modules/api'
+let tableData = ref('')
 api(`select * from achievement`).then((res) => {
-  tableData.value = res.res;
-});
+  tableData.value = res.res
+})
 </script>
-<style scoped lang='less'>
-</style>
+<style scoped lang="less"></style>

@@ -62,80 +62,78 @@
   </div>
 </template>
 <script setup>
-import { ref, computed } from "vue";
-import api from "@/modules/api";
-import deleteUser from "@/modules/common/delete-user";
-import { useRouter } from "vue-router";
-let isAdmin = localStorage.id == "admin";
-let isTeacher = localStorage.id;
-let router = useRouter();
-let data = ref([]);
-let max = ref(0);
-let index = ref(0);
+import { ref, computed } from 'vue'
+import api from '@/modules/api'
+import deleteUser from '@/modules/common/delete-user'
+import { useRouter } from 'vue-router'
+let isAdmin = localStorage.id == 'admin'
+let isTeacher = localStorage.id
+let router = useRouter()
+let data = ref([])
+let max = ref(0)
+let index = ref(0)
 let tableData = computed(() =>
   data.value.slice(0 + index.value * 10, 0 + (index.value + 1) * 10)
-);
+)
 
 function page(page) {
-  index.value = page - 1;
+  index.value = page - 1
 }
 
 api(`select * from student`).then((res) => {
-  data.value = res.res;
-  max.value = res.res.length;
-});
+  data.value = res.res
+  max.value = res.res.length
+})
 function change(data) {
-  if (localStorage.id == "admin") {
-    router.push({ path: "/updata-student", query: { id: data.row.id } });
+  if (localStorage.id == 'admin') {
+    router.push({ path: '/updata-student', query: { id: data.row.id } })
   }
 }
 function remove(id, index) {
-  deleteUser({ col: "student", id: id }).then((res) => {
+  deleteUser({ col: 'student', id: id }).then((res) => {
     if (res.res) {
       api(`DELETE FROM achievement WHERE stucode='${id}';`).then((res) => {
-        router.go(0);
-      });
+        router.go(0)
+      })
     }
-  });
+  })
 }
-let stuClass = ref("");
+let stuClass = ref('')
 let setClass = ref([
   {
-    label: "软件工程1班",
+    label: '软件工程1班'
   },
   {
-    label: "软件工程2班",
+    label: '软件工程2班'
   },
   {
-    label: "软件工程3班",
+    label: '软件工程3班'
   },
   {
-    label: "软件工程4班",
+    label: '软件工程4班'
   },
   {
-    label: "软件工程5班",
+    label: '软件工程5班'
   },
   {
-    label: "软件工程6班",
-  },
-]);
+    label: '软件工程6班'
+  }
+])
 
 function select() {
   api(`select * from student where class='${stuClass.value}';`).then((res) => {
-    data.value = res.res;
-  });
+    data.value = res.res
+  })
 }
-let stuName = ref("");
+let stuName = ref('')
 function search() {
-  let sql = `SELECT * from student  WHERE name LIKE '%${stuName.value}%';`;
+  let sql = `SELECT * from student  WHERE name LIKE '%${stuName.value}%';`
   api(sql).then((res) => {
-    data.value = res.res;
-  });
+    data.value = res.res
+  })
 }
-
-
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-select {
   margin-top: 20px;
   margin-left: 30px;

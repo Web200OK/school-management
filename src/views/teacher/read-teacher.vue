@@ -37,54 +37,54 @@
   </el-table>
 </template>
 <script setup>
-import { ref } from "vue";
-import api from "@/modules/api";
-import deleteUser from "@/modules/common/delete-user";
-import { useRouter } from "vue-router";
-let router = useRouter();
-let tableData = ref([]);
+import { ref } from 'vue'
+import api from '@/modules/api'
+import deleteUser from '@/modules/common/delete-user'
+import { useRouter } from 'vue-router'
+let router = useRouter()
+let tableData = ref([])
 api(`select * from teacher`).then((res) => {
-  tableData.value = res.res;
-});
+  tableData.value = res.res
+})
 function change(data) {
-  router.push({ path: "/updata-teacher", query: { id: data.row.id } });
+  router.push({ path: '/updata-teacher', query: { id: data.row.id } })
 }
 function remove(id, index) {
-  deleteUser({ col: "teacher", id: id }).then((res) => {
+  deleteUser({ col: 'teacher', id: id }).then((res) => {
     if (res.res) {
-      router.go(0);
+      router.go(0)
     }
-  });
+  })
 }
-let subject = ref("创新与实践");
+let subject = ref('创新与实践')
 let subjects = ref([
   {
-    label: "创新与实践",
+    label: '创新与实践'
   },
   {
-    label: "马克思主义思想",
+    label: '马克思主义思想'
   },
   {
-    label: "高等数学",
+    label: '高等数学'
   },
   {
-    label: "VUE.js",
+    label: 'VUE.js'
   },
   {
-    label: "Node.js",
+    label: 'Node.js'
   },
   {
-    label: "MySQL数据库",
-  },
-]);
+    label: 'MySQL数据库'
+  }
+])
 
 function select() {
   api(`select * from teacher where subject='${subject.value}';`).then((res) => {
-    tableData.value = res.res;
-  });
+    tableData.value = res.res
+  })
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-select {
   margin-top: 20px;
   margin-left: 30px;

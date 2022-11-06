@@ -45,71 +45,71 @@
   </el-form>
 </template>
 <script setup>
-import { ref } from "vue";
-import { ElMessage } from "element-plus";
-import createTeacher from "@/modules/teacher/create-teacher";
-let name = ref("");
-let tel = ref("");
-let sex = ref("男");
+import { ref } from 'vue'
+import { ElMessage } from 'element-plus'
+import createTeacher from '@/modules/teacher/create-teacher'
+let name = ref('')
+let tel = ref('')
+let sex = ref('男')
 let sexs = ref([
   {
-    label: "男",
+    label: '男'
   },
   {
-    label: "女",
-  },
-]);
-let subject = ref("创新与实践");
+    label: '女'
+  }
+])
+let subject = ref('创新与实践')
 let subjects = ref([
   {
-    label: "创新与实践",
+    label: '创新与实践'
   },
   {
-    label: "马克思主义思想",
+    label: '马克思主义思想'
   },
   {
-    label: "高等数学",
+    label: '高等数学'
   },
   {
-    label: "VUE.js",
+    label: 'VUE.js'
   },
   {
-    label: "Node.js",
+    label: 'Node.js'
   },
   {
-    label: "MySQL数据库",
-  },
-]);
+    label: 'MySQL数据库'
+  }
+])
 function create() {
-  let telTest = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
-  let nullTest = /^[\s\S]*.*[^\s][\s\S]*$/;
+  let telTest = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+  let nullTest = /^[\s\S]*.*[^\s][\s\S]*$/
   let isCreate =
     nullTest.test(name.value) &&
     nullTest.test(tel.value) &&
-    telTest.test(tel.value);
+    telTest.test(tel.value)
   if (isCreate) {
     createTeacher({
       name: name.value,
       sex: sex.value,
       subject: subject.value,
-      tel: tel.value,
+      tel: tel.value
     }).then((res) => {
       ElMessage({
         message: `成功添加教师：${name.value},工号：${res.id}`,
-        type: "success",
-      });
-      name.value = "";
-      tel.value = "";
-    });
+        type: 'success'
+      })
+      name.value = ''
+      tel.value = ''
+    })
   } else {
     ElMessage.warning({
-      message: "请按照正确格式填写全部内容",
-      type: "warning",
-    });
+      message: '请按照正确格式填写全部内容',
+      type: 'warning'
+    })
   }
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-form-item {
   width: 400px;
   margin: 0px auto;

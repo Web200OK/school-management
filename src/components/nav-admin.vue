@@ -69,11 +69,11 @@
   </el-row>
 </template>
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-let router = useRouter();
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+let router = useRouter()
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .el-row {
   user-select: none;
   width: 200px;
