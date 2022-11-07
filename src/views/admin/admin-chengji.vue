@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData">
     <el-table-column prop="name" label="学生姓名" width="180">
     </el-table-column>
     <el-table-column prop="stucode" label="学号" width="180"> </el-table-column>
@@ -10,7 +10,7 @@
     <el-table-column prop="mysql" label="MySQL"> </el-table-column>
     <el-table-column prop="math" label="高数"> </el-table-column>
     <el-table-column label="删除">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-button type="danger" icon="el-icon-delete" circle></el-button>
       </template>
     </el-table-column>

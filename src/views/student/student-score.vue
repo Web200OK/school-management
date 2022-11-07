@@ -1,6 +1,6 @@
 <template>
   <div v-if="isWatch == 'true'">
-    <el-table :data="data" style="width: 100%">
+    <el-table :data="data">
       <el-table-column prop="key" label="说明" width="200"> </el-table-column>
       <el-table-column prop="value" label="结果" width="200"> </el-table-column>
     </el-table>

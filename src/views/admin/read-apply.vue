@@ -1,9 +1,9 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData">
     <el-table-column prop="teacher" label="申请教师" width="180">
     </el-table-column>
     <el-table-column label="留言" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-tooltip
           class="item"
           effect="dark"
@@ -15,13 +15,13 @@
       </template>
     </el-table-column>
     <el-table-column label="时间">
-      <template v-slot="scope">
+      <template #default="scope">
         <!-- <span>{{ new Date(+scope.row.settime) }}</span> -->
         <span>{{ timestampToTime(+scope.row.settime) }}</span>
       </template>
     </el-table-column>
     <el-table-column label="通过" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-button
           type="success"
           icon="el-icon-check"

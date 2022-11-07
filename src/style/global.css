@@ -1,0 +1,4 @@
+.el-table {
+  width: calc(100vw - 230px);
+  margin-left: 230px;
+}

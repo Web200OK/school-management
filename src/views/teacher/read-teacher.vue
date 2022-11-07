@@ -10,11 +10,10 @@
   </el-select>
   <el-table
     :data="tableData"
-    style="width: 100%"
     :default-sort="{ prop: 'time', order: 'descending' }"
   >
     <el-table-column label="工号" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <span @click="change(scope)">{{ scope.row.id }}</span>
       </template>
     </el-table-column>
@@ -25,7 +24,7 @@
     <el-table-column prop="time" label="入职日期" width="180" sortable>
     </el-table-column>
     <el-table-column label="删除">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-button
           type="danger"
           icon="el-icon-delete"
@@ -87,6 +86,6 @@ function select() {
 <style scoped lang="less">
 .el-select {
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 230px;
 }
 </style>

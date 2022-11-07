@@ -7,6 +7,7 @@ import 'element-plus/lib/theme-chalk/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import axios from 'axios'
+import './style/global.css'
 // import vueAxios from 'vue-axios';
 
 import 'dayjs/locale/zh-cn'

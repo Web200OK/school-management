@@ -1,12 +1,12 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData">
     <el-table-column label="标题" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <div class="title">{{ scope.row.title }}</div>
       </template>
     </el-table-column>
     <el-table-column label="内容" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-tooltip
           class="item"
           effect="dark"
@@ -18,16 +18,18 @@
       </template>
     </el-table-column>
     <el-table-column label="发布时间"
-      ><template v-slot="scope">{{ scope.row.time }}</template></el-table-column
+    ><template #default="scope">{{
+      scope.row.time
+    }}</template></el-table-column
     >
     <el-table-column label="删除"
-      ><template v-slot="scope">
-        <el-button
-          type="danger"
-          icon="el-icon-delete"
-          circle
-          @click="remove(scope)"
-        ></el-button></template
+    ><template #default="scope">
+      <el-button
+        type="danger"
+        icon="el-icon-delete"
+        circle
+        @click="remove(scope)"
+      ></el-button></template
     ></el-table-column>
   </el-table>
 </template>
@@ -64,6 +66,6 @@ function remove(data) {
 .title {
   width: 150px;
   height: 20px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 </style>

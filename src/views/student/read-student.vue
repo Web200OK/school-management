@@ -25,11 +25,10 @@
   ></el-button>
   <el-table
     :data="tableData"
-    style="width: 100%"
     :default-sort="{ prop: 'time', order: 'descending' }"
   >
     <el-table-column label="学号" width="180">
-      <template v-slot="scope">
+      <template #default="scope">
         <span @click="change(scope)">{{ scope.row.id }}</span>
       </template>
     </el-table-column>
@@ -40,7 +39,7 @@
     <el-table-column prop="time" label="入校日期" width="180" sortable>
     </el-table-column>
     <el-table-column label="删除" v-if="isTeacher != 'teacher'">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-button
           type="danger"
           icon="el-icon-delete"
@@ -136,7 +135,7 @@ function search() {
 <style scoped lang="less">
 .el-select {
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 230px;
 }
 .footer {
   text-align: center;
@@ -145,9 +144,9 @@ function search() {
 }
 .stu-name {
   width: 200px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .search-btn {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 </style>
