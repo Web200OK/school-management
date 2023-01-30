@@ -9,7 +9,7 @@
         text-color="#bfcbd9"
         active-text-color="#409eff"
       >
-        <el-menu-item> 图标 </el-menu-item>
+        <el-menu-item> 菜单 </el-menu-item>
         <el-submenu index="1">
           <template #title>
             <i class="el-icon-user-solid"></i>

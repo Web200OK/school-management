@@ -2,18 +2,25 @@
   <component :is="nav"></component>
   <div class="title">
     {{ title }}
-    <el-avatar
-      @click="showUserInfo"
-      class="avatar"
-      shape="square"
-      :size="40"
-      :src="'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'"
-    />
-    <div v-show="userInfo" class="box2">
-      <span @click="personMessage">个人信息</span>
-      <span @click="back">退出系统</span>
-    </div>
+    <el-dropdown :hide-on-click="false">
+      <span class="el-dropdown-link">
+        <el-avatar
+          @click="showUserInfo"
+          class="avatar"
+          shape="square"
+          :size="40"
+          :src="'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'"
+        />
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="personMessage">个人信息</el-dropdown-item>
+          <el-dropdown-item @click="back">退出系统</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
+
   <router-view></router-view>
 </template>
 
@@ -63,31 +70,7 @@ onMounted(() => {
   height: 44px;
   line-height: 44px;
   position: relative;
-  // margin-left: 250px;
-  // margin-top: -10px;
   text-align: center;
-  /* background-color: #304156;
-  color: #bfcbd9; */
-}
-.box2 {
-  position: absolute;
-  top: 50px;
-  right: 0px;
-  border: 1px solid #ccc;
-  width: 100px;
-  height: 65px;
-  background-color: #fff;
-  box-sizing: border-box;
-  span {
-    display: block;
-    margin-bottom: 15px;
-    height: 10px;
-    text-align: center;
-    font-size: 1px;
-    &:hover {
-      cursor: pointer;
-    }
-  }
 }
 .avatar {
   float: right;
@@ -97,5 +80,14 @@ onMounted(() => {
 }
 .avatar:hover {
   cursor: pointer;
+}
+.example-showcase .el-dropdown + .el-dropdown {
+  margin-left: 15px;
+}
+.example-showcase .el-dropdown-link {
+  cursor: pointer;
+  color: var(--el-color-primary);
+  display: flex;
+  align-items: center;
 }
 </style>

@@ -18,18 +18,18 @@
       </template>
     </el-table-column>
     <el-table-column label="发布时间"
-    ><template #default="scope">{{
-      scope.row.time
-    }}</template></el-table-column
+      ><template #default="scope">{{
+        scope.row.time
+      }}</template></el-table-column
     >
     <el-table-column label="删除"
-    ><template #default="scope">
-      <el-button
-        type="danger"
-        icon="el-icon-delete"
-        circle
-        @click="remove(scope)"
-      ></el-button></template
+      ><template #default="scope">
+        <el-button
+          type="danger"
+          icon="el-icon-delete"
+          circle
+          @click="remove(scope)"
+        ></el-button></template
     ></el-table-column>
   </el-table>
 </template>
