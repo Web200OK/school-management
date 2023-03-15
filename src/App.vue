@@ -23,7 +23,7 @@
   width: 100vw;
   height: 100vh;
   background-size: 100% 100%;
-  background-image: url('./assets/home.jpg');
+  background-image: url('./assets/school.jpg');
   // background-color: rgb(199, 232, 232);
 }
 </style>

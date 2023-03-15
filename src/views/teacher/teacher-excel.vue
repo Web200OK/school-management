@@ -21,7 +21,7 @@
       <el-table-column prop="stucode" label="学生学号" width="180">
       </el-table-column>
       <el-table-column :label="showScore">
-        <template v-slot="scope">
+        <template #default="scope">
           <el-input
             placeholder="请输入成绩"
             v-model="scope.row.score"
@@ -48,7 +48,6 @@ import axios from 'axios'
 import uploadExcel from '@/modules/upload-excel'
 import teacherPrint from '@/modules/teacher/teacher-print'
 import { useStore } from 'vuex'
-import echarts from '@/components/echarts'
 
 let router = useRouter()
 let store = useStore()

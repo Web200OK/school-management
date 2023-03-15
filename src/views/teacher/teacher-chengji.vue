@@ -26,7 +26,7 @@
     <el-table-column prop="stucode" label="学号" width="180"> </el-table-column>
     <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
     <el-table-column :label="label">
-      <template v-slot="scope">
+      <template #default="scope">
         <el-button :disabled="isDisabled" @click="setNum(scope)">
           {{ scope.row.score || '未输入' }}
         </el-button>
@@ -38,8 +38,8 @@
       <div class="card-header">
         <span>点击下载Excel</span>
         <el-button class="button" type="text" @click="excelShow = false"
-          >关闭</el-button
-        >
+        >关闭</el-button
+        >09
       </div>
     </template>
     <div class="text item">
@@ -48,7 +48,7 @@
   </el-card>
   <echarts :option="option" v-if="isShow" @notShow="hide(value)"></echarts>
   <el-button type="primary" round class="shenqing" @click="showApply = true"
-    >申请开放</el-button
+  >申请开放</el-button
   >
   <div class="alert" v-show="showApply" @click="showApply = false">
     <div class="box" @click.stop="">
@@ -132,7 +132,6 @@ import api from '@/modules/api'
 import readUser from '@/modules/common/read-user'
 import updataScore from '@/modules/common/updata-score'
 import teacherPrint from '@/modules/teacher/teacher-print'
-import echarts from '@/components/echarts'
 import { v4 } from 'uuid'
 
 let store = useStore()

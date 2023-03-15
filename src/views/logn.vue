@@ -26,7 +26,7 @@
       </el-option>
     </el-select>
     <el-button type="primary" icon="el-icon-s-promotion" @click="logn"
-      >登录</el-button
+    >登录</el-button
     >
   </div>
 </template>
@@ -98,9 +98,8 @@ let options = ref([
   text-align: center;
   width: 400px;
   height: 300px;
-  // background: transparent;
-  background-color: rgb(200, 239, 247);
-  opacity: 0.9;
+  background-color: rgb(188, 190, 191);
+  opacity: 0.8;
   margin: 0px auto;
   top: calc((100vh - 310px) / 2);
   position: relative;

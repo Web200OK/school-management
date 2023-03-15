@@ -23,7 +23,7 @@ module.exports = defineConfig({
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
+    // 'prettier',
     'plugin:prettier/recommended' // 一定要放在最后。因为 extends 中后引入的规则会覆盖前面的规则。
   ],
   rules: {
