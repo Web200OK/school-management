@@ -100,22 +100,22 @@ function remove(id, index) {
 let stuClass = ref('')
 let setClass = ref([
   {
-    label: '软件工程1班'
+    label: '应用统计学1班'
   },
   {
-    label: '软件工程2班'
+    label: '应用统计学2班'
   },
   {
-    label: '软件工程3班'
+    label: '应用统计学3班'
   },
   {
-    label: '软件工程4班'
+    label: '应用统计学4班'
   },
   {
-    label: '软件工程5班'
+    label: '应用统计学5班'
   },
   {
-    label: '软件工程6班'
+    label: '应用统计学6班'
   }
 ])
 

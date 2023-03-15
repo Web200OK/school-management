@@ -3,12 +3,13 @@
     <el-table-column prop="name" label="学生姓名" width="180">
     </el-table-column>
     <el-table-column prop="stucode" label="学号" width="180"> </el-table-column>
-    <el-table-column prop="vue" label="VUE.js"> </el-table-column>
-    <el-table-column prop="node" label="node.js"> </el-table-column>
-    <el-table-column prop="marx" label="马克思"> </el-table-column>
-    <el-table-column prop="innovate" label="创新"> </el-table-column>
-    <el-table-column prop="mysql" label="MySQL"> </el-table-column>
-    <el-table-column prop="math" label="高数"> </el-table-column>
+    <el-table-column prop="vue" label="数学分析"> </el-table-column>
+    <el-table-column prop="node" label="高等代数"> </el-table-column>
+    <el-table-column prop="marx" label="解析几何"> </el-table-column>
+    <el-table-column prop="innovate" label="C++程序语言与设计">
+    </el-table-column>
+    <el-table-column prop="mysql" label="大学物理"> </el-table-column>
+    <el-table-column prop="math" label="常微分"> </el-table-column>
     <el-table-column label="删除">
       <template #default="scope">
         <el-button type="danger" icon="el-icon-delete" circle></el-button>

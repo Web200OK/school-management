@@ -26,7 +26,7 @@
       </el-option>
     </el-select>
     <el-button type="primary" icon="el-icon-s-promotion" @click="logn"
-    >登录</el-button
+      >登录</el-button
     >
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <h2 v-if="student.length">
+  <!-- <h2 v-if="student.length">
     {{ studentName }} 同学：你有{{
       student.length
     }}课成绩不及格，请及时联系老师补考
@@ -20,7 +20,39 @@
   <div class="mes-box" v-for="(item, index) in tableData" :key="index">
     <div class="mes-title">{{ item.title }}</div>
     <div class="mes-text">{{ item.text }}</div>
-  </div>
+  </div> -->
+  <el-table :data="tableData">
+    <el-table-column fixed prop="id" label="id" width="150" />
+    <el-table-column prop="title" label="标题" width="150" />
+    <el-table-column prop="text" label="内容" width="700" />
+    <el-table-column label="操作" width="150" class="table-button">
+      <template #default="scope">
+        <el-button
+          link
+          type="primary"
+          size="small"
+          @click="handleReadMessage(scope)"
+          >点击查看详情</el-button
+        >
+      </template>
+    </el-table-column>
+  </el-table>
+  <el-dialog
+    v-model="dialogVisible"
+    :title="title"
+    width="30%"
+    :before-close="handleClose"
+  >
+    <span>{{ text }}</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">
+          确定
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -30,6 +62,9 @@ let student = ref([])
 let isStudent = ref(localStorage.id == 'student')
 let studentName = ref(localStorage.student)
 let isWatch = ref('')
+let dialogVisible = ref(false)
+let text = ref('')
+let title = ref('')
 api(`select * from isshow`).then((res) => {
   isWatch.value = res.res[0].watch
 })
@@ -81,6 +116,12 @@ if (localStorage.id == 'student') {
 api(`select * from message`).then((res) => {
   tableData.value = res.res
 })
+function handleReadMessage(scope) {
+  console.log('scope', scope)
+  dialogVisible.value = true
+  text.value = scope.row.text
+  title.value = scope.row.title
+}
 </script>
 <style scoped lang="less">
 .mes-box {
@@ -89,5 +130,9 @@ api(`select * from message`).then((res) => {
 }
 .mes-title {
   font-weight: 700;
+}
+.table-button {
+  display: flex;
+  justify-content: center;
 }
 </style>

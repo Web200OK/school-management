@@ -22,7 +22,7 @@
     <el-button @click="log" type="primary" class="log">打印成绩</el-button>
     <el-button type="primary" class="log" @click="isEchart">成绩分析</el-button>
   </div>
-  <el-table :data="tableData" style="width: 100%">
+  <el-table :data="tableData">
     <el-table-column prop="stucode" label="学号" width="180"> </el-table-column>
     <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
     <el-table-column :label="label">
@@ -39,7 +39,7 @@
         <span>点击下载Excel</span>
         <el-button class="button" type="text" @click="excelShow = false"
         >关闭</el-button
-        >09
+        >
       </div>
     </template>
     <div class="text item">
@@ -278,7 +278,7 @@ function log() {
     name: v4(),
     data: []
   }
-  excel.value = store.state.excel + data.name + '.xlsx'
+  excel.value = data.name + '.xlsx'
   data.data.push(['姓名', '学号', '成绩'])
   tableData.value.forEach((item, index) => {
     data.data.push([

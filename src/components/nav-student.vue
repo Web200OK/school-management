@@ -5,11 +5,11 @@
         :router="true"
         default-active="/create-teacher"
         class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
+        background-color="#304156"
+        text-color="#bfcbd9"
+        active-text-color="#409eff"
       >
-        <el-menu-item> 图标 </el-menu-item>
+        <el-menu-item> 学生端菜单栏 </el-menu-item>
         <el-menu-item index="/student-score">
           <i class="el-icon-s-data"></i>
           <template #title>察看成绩</template>
@@ -35,7 +35,7 @@ let updataTeacherUrl = '/updata-student?id=' + localStorage.student
   user-select: none;
   width: 200px;
   height: 100vh;
-  background: #545c64;
+  background: #304156;
   position: fixed;
   top: 0px;
   left: 0px;

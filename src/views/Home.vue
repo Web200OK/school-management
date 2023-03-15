@@ -1,7 +1,7 @@
 <template>
   <component :is="nav"></component>
   <div class="title">
-    {{ title }}
+    {{ title }}端
     <el-dropdown :hide-on-click="false">
       <span class="el-dropdown-link">
         <el-avatar
