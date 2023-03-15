@@ -3,7 +3,7 @@
     <el-select
       v-model="stuClass"
       placeholder="请选择"
-      style="margin-top: 20px; margin-left: 30px; float: left"
+      style="margin-top: 20px; margin-left: 230px; float: left"
       @change="classSelect"
     >
       <el-option
