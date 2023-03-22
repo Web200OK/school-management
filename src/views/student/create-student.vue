@@ -59,25 +59,25 @@ let sexs = ref([
     label: '女'
   }
 ])
-let stuClass = ref('软件工程1班')
+let stuClass = ref('应用统计学1班')
 let setClass = ref([
   {
-    label: '软件工程1班'
+    label: '应用统计学1班'
   },
   {
-    label: '软件工程2班'
+    label: '应用统计学2班'
   },
   {
-    label: '软件工程3班'
+    label: '应用统计学3班'
   },
   {
-    label: '软件工程4班'
+    label: '应用统计学4班'
   },
   {
-    label: '软件工程5班'
+    label: '应用统计学5班'
   },
   {
-    label: '软件工程6班'
+    label: '应用统计学6班'
   }
 ])
 // 将成绩表和学生绑定
@@ -88,7 +88,6 @@ function create() {
     nullTest.test(name.value) &&
     nullTest.test(tel.value) &&
     telTest.test(tel.value)
-  let id = 's' + new Date().getTime()
   if (isCreate) {
     createStudent({
       name: name.value,
