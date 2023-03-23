@@ -98,8 +98,9 @@ let options = ref([
   text-align: center;
   width: 400px;
   height: 300px;
-  background-color: rgb(188, 190, 191);
-  opacity: 0.8;
+  // background-color: rgb(188, 190, 191);
+  background-color: white;
+  // opacity: 0.8;
   margin: 0px auto;
   top: calc((100vh - 310px) / 2);
   position: relative;

@@ -38,7 +38,7 @@
       <div class="card-header">
         <span>点击下载Excel</span>
         <el-button class="button" type="text" @click="excelShow = false"
-        >关闭</el-button
+          >关闭</el-button
         >
       </div>
     </template>
@@ -48,7 +48,7 @@
   </el-card>
   <echarts :option="option" v-if="isShow" @notShow="hide(value)"></echarts>
   <el-button type="primary" round class="shenqing" @click="showApply = true"
-  >申请开放</el-button
+    >申请开放</el-button
   >
   <div class="alert" v-show="showApply" @click="showApply = false">
     <div class="box" @click.stop="">
@@ -154,23 +154,23 @@ let label = ref('')
 readUser({ col: 'teacher', id: localStorage.teacher }).then((res) => {
   label.value = res.res[0].subject + '成绩'
   switch (res.res[0].subject) {
-    case '创新与实践':
-      subject.value = 'innovate'
+    case '数学分析':
+      subject.value = 'sxfx'
       break
-    case '马克思主义思想':
-      subject.value = 'marx'
+    case '高等代数':
+      subject.value = 'gdds'
       break
-    case '高等数学':
-      subject.value = 'math'
+    case '解析几何':
+      subject.value = 'jxjh'
       break
-    case 'VUE.js':
-      subject.value = 'vue'
+    case 'C++程序语言与设计':
+      subject.value = 'Cyy'
       break
-    case 'Node.js':
-      subject.value = 'node'
+    case '大学物理':
+      subject.value = 'dxwl'
       break
-    case 'MySQL数据库':
-      subject.value = 'mysql'
+    case '常微分':
+      subject.value = 'cwf'
       break
   }
   api(`select * from achievement`).then((res) => {
@@ -186,22 +186,22 @@ readUser({ col: 'teacher', id: localStorage.teacher }).then((res) => {
 let stuClass = ref('')
 let setClass = ref([
   {
-    label: '软件工程1班'
+    label: '应用统计学1班'
   },
   {
-    label: '软件工程2班'
+    label: '应用统计学2班'
   },
   {
-    label: '软件工程3班'
+    label: '应用统计学3班'
   },
   {
-    label: '软件工程4班'
+    label: '应用统计学4班'
   },
   {
-    label: '软件工程5班'
+    label: '应用统计学5班'
   },
   {
-    label: '软件工程6班'
+    label: '应用统计学6班'
   }
 ])
 // 查询对应班级的学生的学号，将成绩总数据的表进行遍历，如果学号对得上，说明是这个班级的，就push到tableData里面
