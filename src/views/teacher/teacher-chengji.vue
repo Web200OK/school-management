@@ -164,7 +164,7 @@ readUser({ col: 'teacher', id: localStorage.teacher }).then((res) => {
       subject.value = 'jxjh'
       break
     case 'C++程序语言与设计':
-      subject.value = 'Cyy'
+      subject.value = 'cyy'
       break
     case '大学物理':
       subject.value = 'dxwl'

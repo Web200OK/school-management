@@ -62,22 +62,28 @@ let sexs = ref([
 let subject = ref('数学分析')
 let subjects = ref([
   {
-    label: '数学分析'
+    label: '数学分析',
+    value: 'sxfx'
   },
   {
-    label: '高等代数'
+    label: '高等代数',
+    value: 'gdds'
   },
   {
-    label: '解析几何'
+    label: '解析几何',
+    value: 'jxjh'
   },
   {
-    label: 'C++程序语言与设计'
+    label: 'C++程序语言与设计',
+    value: 'Cyy'
   },
   {
-    label: '大学物理'
+    label: '大学物理',
+    value: 'dxwl'
   },
   {
-    label: '常微分'
+    label: '常微分',
+    value: 'cwf'
   }
 ])
 function create() {
