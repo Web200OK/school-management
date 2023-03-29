@@ -60,13 +60,13 @@ api(`select * from achievement where stucode='${localStorage.student}'`).then(
     let key = [
       '学号',
       '姓名',
-      'VUE',
-      'Node.js',
-      '马克思',
-      '创新',
-      'MysSQL',
-      '高等数学',
-      '平局绩点',
+      '数学分析',
+      '高等代数',
+      '解析几何',
+      '大学物理',
+      'C++程序语言与设计',
+      '常微分',
+      '平均绩点',
       '平均分',
       '总分'
     ]
@@ -89,12 +89,12 @@ function log() {
   data.push([
     '姓名',
     '学号',
-    'VUE',
-    'Node.js',
-    '马克思主义哲学',
-    '创新与实践',
-    'MySQL',
-    '高等数学',
+    '数学分析',
+    '高等代数',
+    '解析几何',
+    '大学物理',
+    'C++程序语言与设计',
+    '常微分',
     '总分'
   ])
   let newData = Object.values(tableData.value[0])

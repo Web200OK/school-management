@@ -46,7 +46,9 @@
       <a :href="excel" download="excel" target="_blank">点击下载</a>
     </div>
   </el-card>
-  <echarts :option="option" v-if="isShow" @notShow="hide(value)"></echarts>
+  <el-drawer v-model="isShow" title="成绩可视化" direction="rtl" size="80%">
+    <echarts :option="option" @notShow="hide(value)"></echarts>
+  </el-drawer>
   <el-button type="primary" round class="shenqing" @click="showApply = true"
     >申请开放</el-button
   >
@@ -133,6 +135,7 @@ import readUser from '@/modules/common/read-user'
 import updataScore from '@/modules/common/updata-score'
 import teacherPrint from '@/modules/teacher/teacher-print'
 import { v4 } from 'uuid'
+import echarts from '@/components/echarts.vue'
 
 let store = useStore()
 

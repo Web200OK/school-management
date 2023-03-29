@@ -46,7 +46,7 @@
       </el-select>
     </el-form-item>
     <el-button type="primary" icon="el-icon-check" @click="create"
-      >确认修改</el-button
+    >确认修改</el-button
     >
   </el-form>
 </template>
@@ -73,25 +73,25 @@ let sexs = ref([
     label: '女'
   }
 ])
-let subject = ref('创新与实践')
+let subject = ref('数学分析')
 let subjects = ref([
   {
-    label: '创新与实践'
+    label: '数学分析'
   },
   {
-    label: '马克思主义思想'
+    label: '高等代数'
   },
   {
-    label: '高等数学'
+    label: '解析几何'
   },
   {
-    label: 'VUE.js'
+    label: '大学物理'
   },
   {
-    label: 'Node.js'
+    label: 'C++程序语言与设计'
   },
   {
-    label: 'MySQL数据库'
+    label: '常微分'
   }
 ])
 

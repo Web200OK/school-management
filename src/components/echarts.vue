@@ -1,7 +1,7 @@
 <template>
   <div class="box" v-show="echartsShow">
     <div class="ceng" @click="notShow"></div>
-    <div id="main" @click.stop=""></div>
+    <div id="main"></div>
   </div>
 </template>
 <script setup>
@@ -20,25 +20,9 @@ onMounted(() => {
 })
 </script>
 <style scoped lang="less">
-.box {
-  position: absolute;
-  top: 100px;
-}
-.ceng {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 9999999;
-}
 #main {
   width: 400px;
   height: 500px;
-  position: fixed;
-  left: 200px;
-  top: 0px;
-  z-index: 99999919;
+  margin-left: 20px;
 }
 </style>
