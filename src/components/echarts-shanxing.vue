@@ -21,8 +21,9 @@ onMounted(() => {
 </script>
 <style scoped lang="less">
 #main {
-  width: 400px;
-  height: 500px;
+  float: left;
+  width: 300px;
+  height: 400px;
   margin-left: 20px;
 }
 </style>

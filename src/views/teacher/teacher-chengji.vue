@@ -47,7 +47,10 @@
     </div>
   </el-card>
   <el-drawer v-model="isShow" title="成绩可视化" direction="rtl" size="80%">
-    <echarts :option="option" @notShow="hide(value)"></echarts>
+    <echarts_shanxing
+      :option="option"
+      @notShow="hide(value)"
+    ></echarts_shanxing>
   </el-drawer>
   <el-button type="primary" round class="shenqing" @click="showApply = true"
     >申请开放</el-button
@@ -135,7 +138,8 @@ import readUser from '@/modules/common/read-user'
 import updataScore from '@/modules/common/updata-score'
 import teacherPrint from '@/modules/teacher/teacher-print'
 import { v4 } from 'uuid'
-import echarts from '@/components/echarts.vue'
+import echarts_shanxing from '@/components/echarts-shanxing.vue'
+import echarts_tiaoxing from '@/components/echarts-tiaoxing.vue'
 
 let store = useStore()
 
@@ -277,8 +281,9 @@ function setChengji() {
 let excel = ref('')
 let excelShow = ref(false)
 function log() {
+  let now = new Date(time.value).getTime()
   let data = {
-    name: v4(),
+    name: now,
     data: []
   }
   excel.value = data.name + '.xlsx'
@@ -359,7 +364,7 @@ function isEchart() {
   })
   isShow.value = true
 }
-function hide(value) {
+function hide1(value) {
   isShow.value = false
 }
 
