@@ -1,26 +1,4 @@
 <template>
-  <!-- <h2 v-if="student.length">
-    {{ studentName }} 同学：你有{{
-      student.length
-    }}课成绩不及格，请及时联系老师补考
-  </h2>
-  <div
-    class="mes-box"
-    v-for="(item, index) in student"
-    :key="index"
-    v-if="isStudent"
-    v-show="isWatch == 'true'"
-  >
-    <div class="mes-title">关于{{ item.key }}考试不及格</div>
-    <div class="mes-text">
-      {{ studentName }}同学：
-      <p>你的{{ item.key }}成绩为{{ item.value }}分。请联系老师补考</p>
-    </div>
-  </div>
-  <div class="mes-box" v-for="(item, index) in tableData" :key="index">
-    <div class="mes-title">{{ item.title }}</div>
-    <div class="mes-text">{{ item.text }}</div>
-  </div> -->
   <el-table :data="tableData">
     <el-table-column fixed prop="id" label="id" width="150" />
     <el-table-column prop="title" label="标题" width="150" />
@@ -32,7 +10,7 @@
           type="primary"
           size="small"
           @click="handleReadMessage(scope)"
-          >点击查看详情</el-button
+        >点击查看详情</el-button
         >
       </template>
     </el-table-column>

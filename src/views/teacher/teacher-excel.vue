@@ -15,9 +15,9 @@
   </div>
   <div v-if="tableData.length">
     <el-button type="primary" @click="add_score" class="log"
-    >录入以下成绩</el-button
+      >录入以下成绩</el-button
     >
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData">
       <el-table-column prop="name" label="学生姓名" width="180">
       </el-table-column>
       <el-table-column prop="stucode" label="学生学号" width="180">
