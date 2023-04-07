@@ -42,8 +42,8 @@
         >
       </div>
     </template>
-    <div class="text item">
-      <a :href="excel" download="excel" target="_blank">点击下载</a>
+    <div class="text-item">
+      <a @click="download" target="_blank">点击下载</a>
     </div>
   </el-card>
   <el-drawer v-model="isShow" title="成绩可视化" direction="rtl" size="80%">
@@ -281,12 +281,14 @@ function setChengji() {
 let excel = ref('')
 let excelShow = ref(false)
 function log() {
-  let now = new Date(time.value).getTime()
+  excelShow.value = true
+}
+function download() {
   let data = {
-    name: now,
+    name: (stuClass.value || '全部同学') + '成绩单',
     data: []
   }
-  excel.value = data.name + '.xlsx'
+  excel.value = (stuClass.value || '全部同学') + '成绩单.xlsx'
   data.data.push(['姓名', '学号', '成绩'])
   tableData.value.forEach((item, index) => {
     data.data.push([
@@ -296,7 +298,7 @@ function log() {
     ])
   })
   teacherPrint({ data: data }).then((res) => {
-    excelShow.value = true
+    excelShow.value = false
   })
 }
 // 生成表单
@@ -466,5 +468,9 @@ function apply() {
     margin: 0px auto;
     margin-top: 20px;
   }
+}
+.text-item > a {
+  text-decoration: underline purple;
+  cursor: pointer;
 }
 </style>

@@ -5,19 +5,19 @@
       <el-table-column prop="value" label="结果" width="200"> </el-table-column>
     </el-table>
     <el-button type="primary" icon="el-icon-download" @click="log"
-      >打印成绩</el-button
+    >打印成绩</el-button
     >
     <el-card class="box-card" v-if="isShow">
       <template #header>
         <div class="card-header">
           <span>下载成绩</span>
-          <el-button class="button close" type="text" @click="isShow = false"
-            >关闭</el-button
+          <el-button class="button-close" type="text" @click="isShow = false"
+          >关闭</el-button
           >
         </div>
       </template>
-      <div class="text item">
-        <a :href="store.state.excel + url + '.xlsx'">点击下载成绩</a>
+      <div class="text-item">
+        <a @click="download" target="_blank">点击下载成绩</a>
       </div>
     </el-card>
     <div class="alert" v-if="isShow"></div>
@@ -85,6 +85,9 @@ api(`select * from achievement where stucode='${localStorage.student}'`).then(
 
 let isShow = ref(false)
 function log() {
+  isShow.value = true
+}
+function download() {
   let data = []
   data.push([
     '姓名',
@@ -105,7 +108,7 @@ function log() {
     data: data
   }
   teacherPrint({ data: print }).then((res) => {
-    isShow.value = true
+    isShow.value = false
     url.value = print.name
   })
 }
@@ -116,16 +119,22 @@ api(`select * from isshow`).then((res) => {
 })
 </script>
 <style scoped lang="less">
+.el-button {
+  top: 50px;
+  left: 80%;
+  position: absolute;
+}
 .box-card {
-  width: 500px !important;
-  height: 400px !important;
+  width: 400px !important;
+  height: 300px !important;
   position: fixed;
   top: 200px;
   left: calc((100vw - 500px) / 2);
   z-index: 99999;
 }
-.close {
-  float: right;
+.button-close {
+  position: absolute;
+  top: 10px;
 }
 .alert {
   width: 100vw;
@@ -135,5 +144,9 @@ api(`select * from isshow`).then((res) => {
   left: 0px;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 9999;
+}
+.text-item > a {
+  text-decoration: underline purple;
+  cursor: pointer;
 }
 </style>
